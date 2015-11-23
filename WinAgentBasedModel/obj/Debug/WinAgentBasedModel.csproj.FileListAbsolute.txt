@@ -1,0 +1,9 @@
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\bin\Debug\WinAgentBasedModel.exe.config
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\bin\Debug\WinAgentBasedModel.exe
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\bin\Debug\WinAgentBasedModel.pdb
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\obj\Debug\WinAgentBasedModel.csprojResolveAssemblyReference.cache
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\obj\Debug\WinAgentBasedModel.Form1.resources
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\obj\Debug\WinAgentBasedModel.Properties.Resources.resources
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\obj\Debug\WinAgentBasedModel.csproj.GenerateResource.Cache
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\obj\Debug\WinAgentBasedModel.exe
+C:\Users\iscrc\Documents\GitHubVisualStudio\FRC2015\WinAgentBasedModel\obj\Debug\WinAgentBasedModel.pdb
