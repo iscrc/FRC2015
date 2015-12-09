@@ -8,17 +8,31 @@ namespace WinAgentBasedModel
 {
     class Environment
     {
+        //tolerences used in this environment, values less than this are equal to zero
+        public double tolerence { get; private set; }
+
         //agents will be injected into environment
         List<Agent> agents;
-        List<Object> localObjects;
+        public List<PhysicalObject> localObjects { get; private set; }
 
-        void addAgent(Agent a)
+        public Environment()
+        {
+            agents = new List<Agent>();
+            localObjects = new List<PhysicalObject>();
+            tolerence = 1.0; //a single unit
+
+        }
+        public void addOjbect(PhysicalObject po)
+        {
+            localObjects.Add(po);
+        }
+        public void addAgent(Agent a)
         {
             agents.Add(a);
         }
         //environment is stepped thru time with some increment
         double currentTime;
-        void timeStep(double increment)
+        public void timeStep(double increment)
         {
             //adjust non-agent aspects of environment (e.g. falling objects)
             foreach (Object o in localObjects)
@@ -27,7 +41,7 @@ namespace WinAgentBasedModel
             }
 
             //tells each agent to act, within the time step increment
-            foreach (Agent a in agents) { }
+            foreach (Agent a in agents) { a.Act(increment); }
             currentTime += increment;
         }
     }
