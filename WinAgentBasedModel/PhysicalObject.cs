@@ -9,9 +9,10 @@ namespace WinAgentBasedModel
     abstract class PhysicalObject
     {
         //location in space
-        public double x { get; private set; }
-        public double y { get; private set; }
-        public double z { get; private set; }
+        public vector location { get; protected set; }
+        //public double x { get; protected set; }
+        //public double y { get; protected set; }
+        //public double z { get; protected set; }
         //mass
         double mass;
         //for purpose of simulation considered immovable
@@ -26,14 +27,12 @@ namespace WinAgentBasedModel
 
         public void position(double x,double y)
         {
-            this.x = x;
-            this.y = y;
-            this.z = 0;
+            location = new vector(x,y,0);
         }
         public virtual bool collision(PhysicalObject collideWith)
         {
             //determine if this object has collided with the passed object
-            if (Math.Abs(x - collideWith.x) < tolerence && Math.Abs(y - collideWith.y) < tolerence && Math.Abs(z - collideWith.z) < tolerence)
+            if (location.distance(collideWith.location) < tolerence)
                 return true;
             else
                 return false;

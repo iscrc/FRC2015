@@ -12,7 +12,7 @@ namespace WinAgentBasedModel
         public double tolerence { get; private set; }
 
         //agents will be injected into environment
-        List<Agent> agents;
+        public List<Agent> agents { get; private set; }
         public List<PhysicalObject> localObjects { get; private set; }
 
         public Environment()
