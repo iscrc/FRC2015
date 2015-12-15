@@ -28,9 +28,9 @@ namespace WinAgentBasedModel
         {
             base.Act(timeStep); //do any generic stuff
             impact(timeStep); //check for collisions
-            location.moveX( Math.Sin(dir) * timeStep * speed);
-            location.moveY( Math.Cos(dir) * timeStep * speed);
-            dir += 3.0 * Math.PI / 180.0; //rate of turn 10 degrees/unit timestep , convert to radians
+            location.moveX( Math.Cos(dir) * timeStep * speed);
+            location.moveY( Math.Sin(dir) * timeStep * speed);
+            dir += -2.1 * Math.PI / 180.0; //rate of turn 10 degrees/unit timestep , convert to radians
             if (dir < 0) dir += twoPI;
             if (dir > twoPI) dir -= twoPI;
         }
@@ -46,8 +46,8 @@ namespace WinAgentBasedModel
                     Wall w = (Wall)po;
                     //use wall normal to bounce;
                     dir = w.vectorBounce(new vector(dir)).toRadians();
-                    location.moveX(Math.Sin(dir) * timeStep * speed);
-                    location.moveY(Math.Cos(dir) * timeStep * speed);
+                    location.moveX(Math.Cos(dir) * timeStep * speed);
+                    location.moveY(Math.Sin(dir) * timeStep * speed);
                 }
                 /*
                 if (Math.Abs(po.ny) < 0) //hit top or bottom

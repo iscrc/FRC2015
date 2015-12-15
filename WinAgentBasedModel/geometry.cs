@@ -25,8 +25,8 @@ namespace WinAgentBasedModel
         public vector(double radians)
         {
             //given a 2D heading in radians, convert to unit vector, set Z axis to zero
-            x = Math.Sin(radians);
-            y = Math.Cos(radians);
+            x = Math.Cos(radians);
+            y = Math.Sin(radians);
             z = 0;
         }
         public double toRadians()

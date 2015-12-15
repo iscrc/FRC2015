@@ -13,7 +13,7 @@ namespace WinAgentBasedModel
     public partial class Form1 : Form
     {
         Environment e;
-        Wall[] walls = new Wall[4];
+        Wall[] walls = new Wall[5];
         simpleBot bot;
         Bitmap img;
 
@@ -25,24 +25,32 @@ namespace WinAgentBasedModel
 
         private void init()
         {
+            Random r = new Random();
             e = new Environment();
-            walls[0] = new Wall(new vector(0,0,0), new vector(1,0,0),e); //left wall
-            walls[1] = new Wall(new vector(258, 0,0), new vector(-1,0,0), e); //right wall
+            walls[0] = new Wall(new vector(10,0,0), new vector(1,0,0),e); //left wall
+            walls[1] = new Wall(new vector(250, 0,0), new vector(-1,0,0), e); //right wall
             walls[2] = new Wall(new vector(0,10,0), new vector(0,1,0), e); //top wall
-            walls[3] = new Wall(new vector(0, 189,0), new vector(0,-1,0), e); //bottom wall
-            for (int i = 0; i < 4; i++) e.addOjbect(walls[i]);
+            walls[3] = new Wall(new vector(0, 180,0), new vector(0,-1,0), e); //bottom wall
+            walls[4] = new Wall(new vector(50, 50, 0), new vector(0.5, 0.5, 0), e); //corner slanted wall
+            for (int i = 0; i < 5; i++) e.addOjbect(walls[i]);
 
-            //bot = new simpleBot(e);                 e.addAgent(bot);
-            //bot = new simpleBot(e, 50, 50, 0, 5);   e.addAgent(bot);
-            bot = new simpleBot(e, 100, 25, 0.2, 2);e.addAgent(bot);
+            bot = new simpleBot(e);                 e.addAgent(bot);
+            bot = new simpleBot(e, 50, 50, 0, 5);   e.addAgent(bot);
+            bot = new simpleBot(e, 100, 25, 0.7, 2);e.addAgent(bot);
+            for (int i=0; i<10; i++)
+            {
+                bot = new simpleBot(e, r.NextDouble() * 100.0+10.0, r.NextDouble() * 100+10.0, r.NextDouble() * 2 * Math.PI, r.NextDouble() * 10.0);
+                e.addAgent(bot);
+            }
 
             img = new Bitmap(pictureBox1.Size.Width,pictureBox1.Size.Height);
         }
         private void doStep()
         {
             Graphics g = Graphics.FromImage(img);
-            g.Clear(Color.AntiqueWhite);
-            e.timeStep(1.0);
+            //g.Clear(Color.AntiqueWhite);
+            g.Clear(Color.FromKnownColor(KnownColor.Control));
+            e.timeStep(0.1);
             foreach (simpleBot bot in e.agents)
                 bot.plot(g);
             pictureBox1.Image = img;
