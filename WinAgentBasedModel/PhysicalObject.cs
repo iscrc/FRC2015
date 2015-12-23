@@ -37,5 +37,9 @@ namespace WinAgentBasedModel
             else
                 return false;
         }
+        public virtual void plot(System.Drawing.Graphics g)
+        {
+            //do something in childs
+        }
     }
 }

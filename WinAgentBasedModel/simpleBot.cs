@@ -30,7 +30,7 @@ namespace WinAgentBasedModel
             impact(timeStep); //check for collisions
             location.moveX( Math.Cos(dir) * timeStep * speed);
             location.moveY( Math.Sin(dir) * timeStep * speed);
-            dir += -2.1 * Math.PI / 180.0; //rate of turn 10 degrees/unit timestep , convert to radians
+            dir += 0.0 * Math.PI / 180.0; //rate of turn 10 degrees/unit timestep , convert to radians
             if (dir < 0) dir += twoPI;
             if (dir > twoPI) dir -= twoPI;
         }
@@ -69,7 +69,7 @@ namespace WinAgentBasedModel
             }
             if (collide.Count > 0) collide.Clear();
         }
-        public void plot(System.Drawing.Graphics g)
+        public override void plot(System.Drawing.Graphics g)
         {
             //g.DrawLine(System.Drawing.Pens.Black, (float)x, (float)y, (float)x+10, (float)y-10);
             g.DrawRectangle(System.Drawing.Pens.Black, (float)location.x - 3, (float)location.y - 3, 6, 6);

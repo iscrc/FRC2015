@@ -31,15 +31,15 @@ namespace WinAgentBasedModel
             walls[1] = new Wall(new vector(250, 0,0), new vector(-1,0,0), e); //right wall
             walls[2] = new Wall(new vector(0,10,0), new vector(0,1,0), e); //top wall
             walls[3] = new Wall(new vector(0, 180,0), new vector(0,-1,0), e); //bottom wall
-            walls[4] = new Wall(new vector(50, 50, 0), new vector(0.5, 0.5, 0), e); //corner slanted wall
+            walls[4] = new Wall(new vector(100, 100, 0), new vector(0.5, 0.5, 0), e); //corner slanted wall
             for (int i = 0; i < 5; i++) e.addOjbect(walls[i]);
 
-            bot = new simpleBot(e);                 e.addAgent(bot);
-            bot = new simpleBot(e, 50, 50, 0, 5);   e.addAgent(bot);
-            bot = new simpleBot(e, 100, 25, 0.7, 2);e.addAgent(bot);
+            //bot = new simpleBot(e);                 e.addAgent(bot);
+            //bot = new simpleBot(e, 50, 50, 0, 5);   e.addAgent(bot);
+            //bot = new simpleBot(e, 100, 25, 0.7, 2);e.addAgent(bot);
             for (int i=0; i<10; i++)
             {
-                bot = new simpleBot(e, r.NextDouble() * 100.0+10.0, r.NextDouble() * 100+10.0, r.NextDouble() * 2 * Math.PI, r.NextDouble() * 10.0);
+                bot = new simpleBot(e, r.NextDouble() * 100.0+50.0, r.NextDouble() * 100+50.0, r.NextDouble() * 2 * Math.PI, r.NextDouble() * 5 + 5.0);
                 e.addAgent(bot);
             }
 
@@ -53,6 +53,8 @@ namespace WinAgentBasedModel
             e.timeStep(0.1);
             foreach (simpleBot bot in e.agents)
                 bot.plot(g);
+            foreach (PhysicalObject po in e.localObjects)
+                po.plot(g);
             pictureBox1.Image = img;
             //get a dist calc
             vector v = e.agents[0].location;

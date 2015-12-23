@@ -59,8 +59,35 @@ namespace WinAgentBasedModel
         public override bool collision(PhysicalObject collideWith)
         {
             //using the normal of this wall, pass location of plane and location of object to test
-            if (normal.pointFromPlane(location, collideWith.location) < 0) return true;
+            //if (normal.pointFromPlane(location, collideWith.location) < 0) return true;
+            if (Math.Abs(normal.pointFromPlane(location, collideWith.location)) < tolerence) return true;
             return false;
+        }
+
+        public override void plot(System.Drawing.Graphics g)
+        {
+            float endx = (float)location.x;
+            float endy = (float)location.y;
+            if (normal.x == -1) //right wall
+                endy=200;
+            if (normal.x == 1) //left wall
+                endy=200;
+            if (normal.y == -1) //bottom wall
+                endx=280;
+            if (normal.y == 1) //top wall
+                endx=280;
+            //if (normal.x > -0.9 && normal.x < 0.9 && normal.x != 0) //odd wall
+            {
+                double ortho = normal.toRadians() - Math.PI / 2.0;
+                endx = (float)Math.Cos(ortho)*300.0f + (float)location.x;
+                endy = (float)Math.Sin(ortho)*300.0f + (float)location.y;
+                g.DrawLine(System.Drawing.Pens.Red, (float)location.x, (float)location.y, endx, endy);
+                //now go 180 degrees opposite
+                ortho += Math.PI;
+                endx = (float)Math.Cos(ortho) * 300.0f + (float)location.x;
+                endy = (float)Math.Sin(ortho) * 300.0f + (float)location.y;
+            }
+            g.DrawLine(System.Drawing.Pens.Black, (float)location.x, (float)location.y, endx, endy);
         }
         /*
         public override bool collision(PhysicalObject collideWith)
