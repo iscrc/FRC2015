@@ -35,14 +35,15 @@ namespace WinAgentBasedModel
             for (int i = 0; i < 5; i++) e.addOjbect(walls[i]);
 
             //bot = new simpleBot(e);                 e.addAgent(bot);
-            //bot = new simpleBot(e, 50, 50, 0, 5);   e.addAgent(bot);
-            //bot = new simpleBot(e, 100, 25, 0.7, 2);e.addAgent(bot);
+            bot = new simpleBot(e, 140, 150, 0, 2);   e.addAgent(bot);
+            bot = new simpleBot(e, 150,150, Math.PI, 1);e.addAgent(bot);
+            /*
             for (int i=0; i<10; i++)
             {
                 bot = new simpleBot(e, r.NextDouble() * 100.0+50.0, r.NextDouble() * 100+50.0, r.NextDouble() * 2 * Math.PI, r.NextDouble() * 5 + 5.0);
                 e.addAgent(bot);
             }
-
+            */
             img = new Bitmap(pictureBox1.Size.Width,pictureBox1.Size.Height);
         }
         private void doStep()

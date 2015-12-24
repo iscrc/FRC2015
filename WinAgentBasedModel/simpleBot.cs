@@ -49,6 +49,15 @@ namespace WinAgentBasedModel
                     location.moveX(Math.Cos(dir) * timeStep * speed);
                     location.moveY(Math.Sin(dir) * timeStep * speed);
                 }
+                else if (po is simpleBot)
+                {
+                    simpleBot other = (simpleBot)po;
+                    vector myDir = new vector(dir);
+                    vector itDir = new vector(other.dir);
+                    //speed = 0; //hit another bot, stop!
+                    dir = itDir.impact(myDir).toRadians();
+                    other.dir = myDir.impact(itDir).toRadians();
+                }
                 /*
                 if (Math.Abs(po.ny) < 0) //hit top or bottom
                 {
@@ -72,7 +81,10 @@ namespace WinAgentBasedModel
         public override void plot(System.Drawing.Graphics g)
         {
             //g.DrawLine(System.Drawing.Pens.Black, (float)x, (float)y, (float)x+10, (float)y-10);
-            g.DrawRectangle(System.Drawing.Pens.Black, (float)location.x - 3, (float)location.y - 3, 6, 6);
+            if (this == embed.agents.First())
+                g.FillRectangle(System.Drawing.Brushes.Red, (float)location.x - 3, (float)location.y - 3, 6, 6);
+            else
+                g.DrawRectangle(System.Drawing.Pens.Black, (float)location.x - 3, (float)location.y - 3, 6, 6);
         }
     }
 }

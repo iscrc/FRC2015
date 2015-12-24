@@ -11,7 +11,7 @@ namespace WinAgentBasedModel
         //properties of the agent
         //behaviors of agent
         //access to the environment
-        Environment embed;
+        protected Environment embed;
         protected List<PhysicalObject> collide;
 
         public Agent(Environment e) : base(e)
@@ -31,6 +31,10 @@ namespace WinAgentBasedModel
             foreach (PhysicalObject po in embed.localObjects)
             {
                 if (po.collision(this)) collide.Add(po);
+            }
+            foreach(Agent a in embed.agents)
+            {
+                if (a.collision(this)) if (a != this) collide.Add(a);
             }
         }
     }
