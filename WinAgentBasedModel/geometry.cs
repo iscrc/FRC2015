@@ -78,7 +78,8 @@ namespace WinAgentBasedModel
         {
             double d = -(x * org.x + y * org.y + z * org.z);
             double num = x * pt.x + y * pt.y + z * pt.z + d;
-            double denom = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
+            //double denom = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
+            double denom = Math.Sqrt(x*x + y*y + z*z);
             double dist = num / denom;
             return dist;
         }

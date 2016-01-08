@@ -35,8 +35,8 @@ namespace WinAgentBasedModel
             for (int i = 0; i < 5; i++) e.addOjbect(walls[i]);
 
             //bot = new simpleBot(e);                 e.addAgent(bot);
-            bot = new simpleBot(e, 140, 150, 0, 2);   e.addAgent(bot);
-            bot = new simpleBot(e, 150,150, Math.PI, 1);e.addAgent(bot);
+            bot = new simpleBot(e, 140, 150, 0, 1.9);   e.addAgent(bot);
+            bot = new simpleBot(e, 150,150, Math.PI, 1.9);e.addAgent(bot);
             /*
             for (int i=0; i<10; i++)
             {
@@ -57,6 +57,7 @@ namespace WinAgentBasedModel
             foreach (PhysicalObject po in e.localObjects)
                 po.plot(g);
             pictureBox1.Image = img;
+            /*
             //get a dist calc
             vector v = e.agents[0].location;
             double d = walls[0].distanceFrom(v);
@@ -67,16 +68,20 @@ namespace WinAgentBasedModel
             distTop.Text = String.Format("{0:F2}", d);
             d = walls[3].distanceFrom(v);
             distBottom.Text = String.Format("{0:F2}", d);
+            */
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             doStep();
         }
 
         private void runButton_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            //timer1.Start();
+            for (int i = 0; i < 5000; i++) this.e.timeStep(0.1);
+            doStep();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
