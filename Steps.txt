@@ -1,10 +1,13 @@
-This is an open file form Visual Studio Community
+Everything in this tutorial is for best understanding out there /specially for new people / and also for advance peoples ofcourse.
+This is an open file form Visual Studio Community.
 Steps:
-1) Get VS community
-2) Add extension for git from github
-3) Clone from github
-4) Open from local git repo the new repo (FRC2015)
+1) Get VS community.
+2) Add extension for git from github.
+3) Clone from github.
+4) Open from local git repo the new repo (FRC2015).
 5) --do some work--
 6) in project section click 'changes'
-7) files might be 'untracked' add them
-8) Commit saves local, commit and push sends up to github
+7) files might be 'untracked' add them.
+8) Commit saves local, commit and push sends up to github.
+hope you like my work.
+thank you so much.
